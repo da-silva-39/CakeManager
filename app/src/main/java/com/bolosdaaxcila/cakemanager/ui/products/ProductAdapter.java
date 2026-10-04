@@ -44,6 +44,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product p = items.get(position);
         holder.textName.setText(p.getName());
+        if (p.getImageUri() != null && !p.getImageUri().isEmpty()) {
+            try {
+                java.io.InputStream is = holder.itemView.getContext().getContentResolver()
+                        .openInputStream(android.net.Uri.parse(p.getImageUri()));
+                holder.imageProduct.setImageBitmap(android.graphics.BitmapFactory.decodeStream(is));
+            } catch (Exception e) {
+                holder.imageProduct.setImageResource(android.R.drawable.ic_menu_gallery);
+            }
+        } else {
+            holder.imageProduct.setImageResource(android.R.drawable.ic_menu_gallery);
+        }
         holder.textPrice.setText(String.format("%.2f MZN", p.getPrice()));
         holder.btnEdit.setOnClickListener(v -> listener.onEdit(p));
         holder.btnDelete.setOnClickListener(v -> listener.onDelete(p));
@@ -57,6 +68,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textName;
         TextView textPrice;
+        android.widget.ImageView imageProduct;
         Button btnEdit;
         Button btnDelete;
 
@@ -64,6 +76,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             super(itemView);
             textName = itemView.findViewById(R.id.textName);
             textPrice = itemView.findViewById(R.id.textPrice);
+            imageProduct = itemView.findViewById(R.id.imageProduct);
             btnEdit = itemView.findViewById(R.id.btnEdit);
             btnDelete = itemView.findViewById(R.id.btnDelete);
         }

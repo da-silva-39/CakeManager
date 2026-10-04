@@ -11,6 +11,14 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/imageProduct"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/product_image" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"

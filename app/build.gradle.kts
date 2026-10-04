@@ -10,8 +10,8 @@ android {
 
     defaultConfig {
         applicationId = "com.bolosdaaxcila.cakemanager"
-        minSdk = 35
-        targetSdk = 37
+        minSdk = 26
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -45,4 +45,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.room.testing)
 }

@@ -58,6 +58,8 @@ public class OrderFormActivity extends AppCompatActivity {
     private final List<ChosenItem> chosen = new ArrayList<>();
     private long orderId = -1;
     private long selectedProductId = -1;
+    private boolean productsReady;
+    private java.util.List<com.bolosdaaxcila.cakemanager.data.model.OrderItem> lastItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +82,8 @@ public class OrderFormActivity extends AppCompatActivity {
         productRepository.getAll().observe(this, list -> {
             products.clear();
             if (list != null) products.addAll(list);
+            productsReady = true;
+            rebuildChosen();
             List<String> names = new ArrayList<>();
             for (Product p : products) names.add(p.getName());
             spinnerProduct.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, names));
@@ -104,20 +108,24 @@ public class OrderFormActivity extends AppCompatActivity {
                 }
             });
             orderRepository.getItems(orderId).observe(this, items -> {
-                chosen.clear();
-                if (items != null) {
-                    for (OrderItem oi : items) {
-                        for (Product p : products) {
-                            if (p.getId() == oi.getProductId()) {
-                                chosen.add(new ChosenItem(p, oi.getQuantity()));
-                                break;
-                            }
-                        }
-                    }
-                }
-                refresh();
+                lastItems = items;
+                rebuildChosen();
             });
         }
+    }
+
+    private void rebuildChosen() {
+        if (lastItems == null || !productsReady) return;
+        chosen.clear();
+        for (OrderItem oi : lastItems) {
+            for (Product p : products) {
+                if (p.getId() == oi.getProductId()) {
+                    chosen.add(new ChosenItem(p, oi.getQuantity()));
+                    break;
+                }
+            }
+        }
+        refresh();
     }
 
     private void addItem() {

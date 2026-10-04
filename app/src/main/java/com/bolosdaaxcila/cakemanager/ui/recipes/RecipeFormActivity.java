@@ -54,6 +54,10 @@ public class RecipeFormActivity extends AppCompatActivity {
     private long recipeId = -1;
     private long selectedProductId = -1;
     private long selectedIngredientId = -1;
+    private Recipe pendingRecipe;
+    private boolean productsReady;
+    private boolean ingredientsReady;
+    private boolean editPopulated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +81,8 @@ public class RecipeFormActivity extends AppCompatActivity {
         productRepository.getAll().observe(this, list -> {
             products.clear();
             if (list != null) products.addAll(list);
+            productsReady = true;
+            populateEditIfReady();
             List<String> names = new ArrayList<>();
             for (Product p : products) names.add(p.getName());
             spinnerProduct.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, names));
@@ -88,6 +94,8 @@ public class RecipeFormActivity extends AppCompatActivity {
         ingredientRepository.getAll().observe(this, list -> {
             ingredients.clear();
             if (list != null) ingredients.addAll(list);
+            ingredientsReady = true;
+            populateEditIfReady();
             List<String> names = new ArrayList<>();
             for (Ingredient i : ingredients) names.add(i.getName());
             spinnerIngredient.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, names));
@@ -113,16 +121,8 @@ public class RecipeFormActivity extends AppCompatActivity {
 
         if (recipeId != -1) {
             recipeRepository.findById(recipeId, recipe -> {
-                if (recipe != null) {
-                    editName.setText(recipe.getName());
-                    editDescription.setText(recipe.getDescription());
-                    for (int i = 0; i < products.size(); i++) {
-                        if (products.get(i).getId() == recipe.getProductId()) {
-                            spinnerProduct.setSelection(i);
-                            break;
-                        }
-                    }
-                }
+                pendingRecipe = recipe;
+                populateEditIfReady();
             });
             recipeRepository.getIngredients(recipeId).observe(this, list -> {
                 chosen.clear();
@@ -137,6 +137,19 @@ public class RecipeFormActivity extends AppCompatActivity {
                 }
                 refreshChosen();
             });
+        }
+    }
+
+    private void populateEditIfReady() {
+        if (editPopulated || pendingRecipe == null || !productsReady || !ingredientsReady) return;
+        editPopulated = true;
+        editName.setText(pendingRecipe.getName());
+        editDescription.setText(pendingRecipe.getDescription());
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId() == pendingRecipe.getProductId()) {
+                spinnerProduct.setSelection(i);
+                break;
+            }
         }
     }
 

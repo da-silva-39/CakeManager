@@ -20,6 +20,7 @@ public class Product {
     private String description;
     private double price;
     private long categoryId;
+    private String imageUri;
 
     public Product(String name, String description, double price, long categoryId) {
         this.name = name;
@@ -38,4 +39,6 @@ public class Product {
     public void setPrice(double price) { this.price = price; }
     public long getCategoryId() { return categoryId; }
     public void setCategoryId(long categoryId) { this.categoryId = categoryId; }
+    public String getImageUri() { return imageUri; }
+    public void setImageUri(String imageUri) { this.imageUri = imageUri; }
 }

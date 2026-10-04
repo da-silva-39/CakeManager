@@ -31,6 +31,9 @@ public class ProductFormActivity extends AppCompatActivity {
     private final List<Category> categories = new ArrayList<>();
     private long productId = -1;
     private long selectedCategoryId = -1;
+    private String imageUri;
+    private boolean productsReady = false;
+    private boolean productLoaded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,20 @@ public class ProductFormActivity extends AppCompatActivity {
         categoryRepository = new CategoryRepository(this);
         productId = getIntent().getLongExtra("product_id", -1);
 
+        androidx.activity.result.ActivityResultLauncher<String> imagePicker =
+                registerForActivityResult(new androidx.activity.result.contract.ActivityResultContracts.GetContent(), uri -> {
+                    if (uri != null) {
+                        imageUri = uri.toString();
+                        try {
+                            getContentResolver().takePersistableUriPermission(uri, android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        } catch (Exception ignored) { }
+                        android.widget.Button btn = findViewById(R.id.btnChooseImage);
+                        btn.setText(R.string.choose_image);
+                        ((android.widget.ImageView) findViewById(R.id.imagePreview)).setImageURI(uri);
+                    }
+                });
+        findViewById(R.id.btnChooseImage).setOnClickListener(v -> imagePicker.launch("image/*"));
+
         categoryRepository.getAll().observe(this, list -> {
             categories.clear();
             if (list != null) categories.addAll(list);
@@ -57,11 +74,19 @@ public class ProductFormActivity extends AppCompatActivity {
             spinnerCategory.setAdapter(adapter);
 
             if (productId != -1) {
+                productLoaded = true;
                 productRepository.findById(productId, product -> {
                     if (product != null) {
                         editName.setText(product.getName());
                         editDescription.setText(product.getDescription());
                         editPrice.setText(String.valueOf(product.getPrice()));
+                        if (product.getImageUri() != null && !product.getImageUri().isEmpty()) {
+                            imageUri = product.getImageUri();
+                            try {
+                                ((android.widget.ImageView) findViewById(R.id.imagePreview))
+                                        .setImageURI(android.net.Uri.parse(imageUri));
+                            } catch (Exception ignored) { }
+                        }
                         for (int i = 0; i < categories.size(); i++) {
                             if (categories.get(i).getId() == product.getCategoryId()) {
                                 spinnerCategory.setSelection(i);
@@ -114,7 +139,9 @@ public class ProductFormActivity extends AppCompatActivity {
         }
 
         if (productId == -1) {
-            productRepository.insert(new Product(name, description, price, selectedCategoryId), id -> finish());
+            Product p = new Product(name, description, price, selectedCategoryId);
+            p.setImageUri(imageUri);
+            productRepository.insert(p, id -> finish());
         } else {
             long finalSelectedCategoryId = selectedCategoryId;
             productRepository.findById(productId, product -> {
@@ -123,6 +150,7 @@ public class ProductFormActivity extends AppCompatActivity {
                     product.setDescription(description);
                     product.setPrice(price);
                     product.setCategoryId(finalSelectedCategoryId);
+                    product.setImageUri(imageUri);
                     productRepository.update(product);
                 }
                 finish();

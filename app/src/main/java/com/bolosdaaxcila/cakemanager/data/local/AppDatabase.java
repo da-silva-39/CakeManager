@@ -18,7 +18,7 @@ import com.bolosdaaxcila.cakemanager.data.model.User;
 
 @Database(entities = {User.class, Category.class, Product.class, Ingredient.class,
         Recipe.class, RecipeIngredient.class, StockMovement.class, Order.class, OrderItem.class},
-        version = 1, exportSchema = false)
+        version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase instance;

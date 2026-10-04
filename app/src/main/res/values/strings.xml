@@ -84,4 +84,6 @@
     <string name="edit_name">Editar nome</string>
     <string name="change_password">Alterar palavra-passe</string>
     <string name="password_updated">Palavra-passe atualizada.</string>
+    <string name="product_image">Imagem do produto</string>
+    <string name="choose_image">Escolher imagem</string>
 </resources>
