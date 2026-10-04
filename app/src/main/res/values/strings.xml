@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CakeManager</string>
+    <string name="welcome_message">CakeManager — Bolos da Axcila</string>
+    <string name="welcome_subtitle">Gestão da sua confeitaria</string>
+
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="edit">Editar</string>
+    <string name="delete">Eliminar</string>
+    <string name="search">Pesquisar</string>
+    <string name="login">Iniciar sessão</string>
+    <string name="register">Criar conta</string>
+    <string name="logout">Terminar sessão</string>
+
+    <string name="products">Produtos</string>
+    <string name="categories">Categorias</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="recipes">Receitas</string>
+    <string name="stock">Stock</string>
+    <string name="orders">Encomendas</string>
+    <string name="dashboard">Dashboard</string>
+</resources>

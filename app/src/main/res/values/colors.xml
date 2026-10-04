@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <color name="pink_primary">#D81B60</color>
+    <color name="pink_light">#F8BBD0</color>
+    <color name="pink_lighter">#FCE4EC</color>
+    <color name="pink_dark">#AD1457</color>
+
+    <color name="chocolate">#5D4037</color>
+    <color name="chocolate_dark">#3E2723</color>
+    <color name="chocolate_light">#8D6E63</color>
+
+    <color name="gold">#C9A227</color>
+    <color name="gold_light">#E6C766</color>
+
+    <color name="background">#FFF8F9</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="error">#B00020</color>
+    <color name="success">#2E7D32</color>
+</resources>
