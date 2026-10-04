@@ -8,10 +8,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bolosdaaxcila.cakemanager.R;
+import com.bolosdaaxcila.cakemanager.data.repository.DashboardRepository;
 import com.bolosdaaxcila.cakemanager.ui.auth.LoginActivity;
 import com.bolosdaaxcila.cakemanager.utils.SessionManager;
 
 public class DashboardActivity extends AppCompatActivity {
+
+    private DashboardRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +25,38 @@ public class DashboardActivity extends AppCompatActivity {
         TextView welcome = findViewById(R.id.textWelcome);
         welcome.setText(getString(R.string.welcome_user, session.getUserName()));
 
+        repository = new DashboardRepository(this);
+
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> {
             session.logout();
             startActivity(new Intent(this, LoginActivity.class));
             finishAffinity();
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadTotals();
+    }
+
+    private void loadTotals() {
+        repository.loadTotals(totals -> {
+            if (totals == null) return;
+            setText(R.id.valueProducts, totals.products);
+            setText(R.id.valueCategories, totals.categories);
+            setText(R.id.valueIngredients, totals.ingredients);
+            setText(R.id.valueOrders, totals.orders);
+            setText(R.id.valuePending, totals.pendingOrders);
+            setText(R.id.valuePreparing, totals.preparingOrders);
+            setText(R.id.valueReady, totals.readyOrders);
+            setText(R.id.valueLowStock, totals.lowStockIngredients);
+        });
+    }
+
+    private void setText(int id, int value) {
+        TextView tv = findViewById(id);
+        if (tv != null) tv.setText(String.valueOf(value));
     }
 }
