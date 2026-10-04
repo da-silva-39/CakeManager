@@ -37,6 +37,8 @@
         <activity android:name=".ui.ingredients.IngredientFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.recipes.RecipeListActivity" android:exported="false" />
         <activity android:name=".ui.recipes.RecipeFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.stock.StockActivity" android:exported="false" />
+        <activity android:name=".ui.stock.StockMovementFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

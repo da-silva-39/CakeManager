@@ -164,6 +164,13 @@
             android:text="@string/recipes" />
 
         <Button
+            android:id="@+id/btnStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/stock" />
+
+        <Button
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.stock.StockActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/low_stock_alert" android:textStyle="bold" android:textColor="@color/error" />
+        <TextView android:id="@+id/textLowStock" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" />
+
+        <Button android:id="@+id/btnNewMovement" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/new_movement" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/movement_history" android:textStyle="bold" android:textColor="@color/chocolate" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMovements"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
+
+    </LinearLayout>
+</ScrollView>

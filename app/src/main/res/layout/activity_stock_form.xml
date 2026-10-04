@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.stock.StockMovementFormActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ingredient" android:textStyle="bold" />
+        <Spinner android:id="@+id/spinnerIngredient" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+        <RadioGroup android:id="@+id/radioType" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="16dp">
+            <RadioButton android:id="@+id/radioEntry" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/entry" android:checked="true" />
+            <RadioButton android:id="@+id/radioExit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/exit" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:hint="@string/quantity">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editQuantity" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:hint="@string/description">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editDescription" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button android:id="@+id/btnSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/save" />
+
+    </LinearLayout>
+</ScrollView>
