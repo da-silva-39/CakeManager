@@ -69,4 +69,15 @@
     <string name="error_insufficient_stock">Stock insuficiente.</string>
     <string name="no_low_stock">Sem ingredientes com stock baixo.</string>
     <string name="low_stock_alert">Stock baixo:</string>
+    <string name="customer_name">Nome do cliente</string>
+    <string name="customer_phone">Telefone do cliente</string>
+    <string name="add_product">Adicionar produto</string>
+    <string name="add_to_order">Adicionar à encomenda</string>
+    <string name="total">Total</string>
+    <string name="confirm_delete_order">Tem certeza de que deseja eliminar esta encomenda?</string>
+    <string name="error_invalid_phone">Telefone inválido.</string>
+    <string name="error_order_needs_items">Adicione pelo menos um produto à encomenda.</string>
+    <string name="status">Estado</string>
+    <string name="status_updated">Estado atualizado.</string>
+    <string name="save_status">Guardar estado</string>
 </resources>
