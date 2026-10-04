@@ -13,7 +13,7 @@
         android:theme="@style/Theme.CakeManager">
 
         <activity
-            android:name=".ui.auth.SplashActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -43,6 +43,7 @@
         <activity android:name=".ui.orders.OrderFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.orders.OrderDetailActivity" android:exported="false" />
         <activity android:name=".ui.dashboard.ProfileActivity" android:exported="false" />
+        <activity android:name=".ui.recipes.RecipeDetailActivity" android:exported="false" />
     </application>
 
 </manifest>

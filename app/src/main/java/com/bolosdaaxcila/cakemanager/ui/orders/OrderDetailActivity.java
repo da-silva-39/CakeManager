@@ -22,6 +22,7 @@ import java.util.Locale;
 public class OrderDetailActivity extends AppCompatActivity {
 
     private OrderRepository orderRepository;
+    private com.bolosdaaxcila.cakemanager.data.repository.ProductRepository productRepository;
     private long orderId;
     private final List<String> itemLines = new ArrayList<>();
 
@@ -31,6 +32,7 @@ public class OrderDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_detail);
 
         orderRepository = new OrderRepository(this);
+        productRepository = new com.bolosdaaxcila.cakemanager.data.repository.ProductRepository(this);
         orderId = getIntent().getLongExtra("order_id", -1);
 
         TextView textCustomer = findViewById(R.id.textCustomer);
@@ -58,11 +60,17 @@ public class OrderDetailActivity extends AppCompatActivity {
         orderRepository.getItems(orderId).observe(this, items -> {
             if (items == null) return;
             StringBuilder sb = new StringBuilder();
+            java.util.concurrent.atomic.AtomicInteger remaining = new java.util.concurrent.atomic.AtomicInteger(items.size());
             for (OrderItem oi : items) {
-                sb.append("- Produto #").append(oi.getProductId()).append(" x").append(oi.getQuantity())
-                        .append(" = ").append(String.format(Locale.getDefault(), "%.2f", oi.getSubtotal())).append(" MZN\n");
+                productRepository.findById(oi.getProductId(), product -> {
+                    String name = product != null ? product.getName() : ("#" + oi.getProductId());
+                    sb.append("- ").append(name).append(" x").append(oi.getQuantity())
+                            .append(" = ").append(String.format(Locale.getDefault(), "%.2f", oi.getSubtotal())).append(" MZN\n");
+                    if (remaining.decrementAndGet() == 0) {
+                        textItems.setText(sb.toString());
+                    }
+                });
             }
-            textItems.setText(sb.toString());
         });
 
         btnSaveStatus.setOnClickListener(v -> {

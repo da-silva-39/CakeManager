@@ -81,4 +81,7 @@
     <string name="status_updated">Estado atualizado.</string>
     <string name="save_status">Guardar estado</string>
     <string name="profile">Perfil</string>
+    <string name="edit_name">Editar nome</string>
+    <string name="change_password">Alterar palavra-passe</string>
+    <string name="password_updated">Palavra-passe atualizada.</string>
 </resources>

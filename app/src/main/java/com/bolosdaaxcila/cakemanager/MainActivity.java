@@ -1,4 +1,4 @@
-package com.bolosdaaxcila.cakemanager.ui.auth;
+package com.bolosdaaxcila.cakemanager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,16 +7,16 @@ import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bolosdaaxcila.cakemanager.R;
+import com.bolosdaaxcila.cakemanager.ui.auth.LoginActivity;
 import com.bolosdaaxcila.cakemanager.ui.dashboard.DashboardActivity;
 import com.bolosdaaxcila.cakemanager.utils.SessionManager;
 
-public class SplashActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_main);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             SessionManager session = new SessionManager(this);

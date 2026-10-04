@@ -20,6 +20,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public interface OnAction {
         void onEdit(Recipe recipe);
         void onDelete(Recipe recipe);
+        void onOpen(Recipe recipe);
     }
 
     private List<Recipe> items = new ArrayList<>();
@@ -47,6 +48,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         holder.textDescription.setText(r.getDescription());
         holder.btnEdit.setOnClickListener(v -> listener.onEdit(r));
         holder.btnDelete.setOnClickListener(v -> listener.onDelete(r));
+        holder.itemView.setOnClickListener(v -> listener.onOpen(r));
     }
 
     @Override

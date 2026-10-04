@@ -43,6 +43,13 @@ public class RecipeListActivity extends AppCompatActivity {
             }
 
             @Override
+            public void onOpen(Recipe recipe) {
+                Intent i = new Intent(RecipeListActivity.this, RecipeDetailActivity.class);
+                i.putExtra("recipe_id", recipe.getId());
+                startActivity(i);
+            }
+
+            @Override
             public void onDelete(Recipe recipe) {
                 new AlertDialog.Builder(RecipeListActivity.this)
                         .setTitle(R.string.delete)

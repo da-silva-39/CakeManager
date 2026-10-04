@@ -20,6 +20,10 @@ public class UserRepository extends BaseRepository {
         runAsync(() -> userDao.insert(user), callback);
     }
 
+    public void update(User user) {
+        runAsync(() -> userDao.update(user));
+    }
+
     public void findByEmail(String email, Callback<User> callback) {
         runAsync(() -> userDao.findByEmail(email), callback);
     }
