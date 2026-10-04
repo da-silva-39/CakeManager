@@ -35,4 +35,7 @@
     <string name="preparing">Em preparação</string>
     <string name="ready">Prontas</string>
     <string name="low_stock">Stock baixo</string>
+    <string name="description">Descrição</string>
+    <string name="confirm_delete_category">Tem certeza de que deseja eliminar esta categoria?</string>
+    <string name="error_category_in_use">Não é possível remover esta categoria porque está associada a produtos.</string>
 </resources>

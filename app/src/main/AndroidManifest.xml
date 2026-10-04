@@ -29,6 +29,8 @@
         <activity android:name=".ui.dashboard.DashboardActivity" android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity android:name=".ui.categories.CategoryListActivity" android:exported="false" />
+        <activity android:name=".ui.categories.CategoryFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
