@@ -150,6 +150,13 @@
             android:text="@string/products" />
 
         <Button
+            android:id="@+id/btnIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/ingredients" />
+
+        <Button
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

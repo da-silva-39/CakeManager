@@ -32,6 +32,10 @@ public class StockMovementRepository extends BaseRepository {
         return movementDao.getByIngredient(ingredientId);
     }
 
+    public void countByIngredient(long ingredientId, Callback<Integer> callback) {
+        runAsync(() -> movementDao.countByIngredient(ingredientId), callback);
+    }
+
     public void registerEntry(long ingredientId, double quantity, String description, Callback<Boolean> callback) {
         runAsync(() -> {
             Ingredient ing = ingredientDao.findById(ingredientId);

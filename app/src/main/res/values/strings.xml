@@ -44,4 +44,13 @@
     <string name="error_product_in_order">Não é possível remover este produto porque está associado a encomendas.</string>
     <string name="error_product_in_recipe">Não é possível remover este produto porque está associado a uma receita.</string>
     <string name="error_select_category">Selecione uma categoria.</string>
+    <string name="current_quantity">Quantidade atual</string>
+    <string name="min_quantity">Quantidade mínima</string>
+    <string name="unit">Unidade de medida</string>
+    <string name="confirm_delete_ingredient">Tem certeza de que deseja eliminar este ingrediente?</string>
+    <string name="error_unit_required">A unidade é obrigatória.</string>
+    <string name="error_invalid_quantity">Quantidade inválida.</string>
+    <string name="error_invalid_min_quantity">Quantidade mínima inválida.</string>
+    <string name="error_ingredient_in_recipe">Não é possível remover este ingrediente porque está associado a uma receita.</string>
+    <string name="error_ingredient_has_movements">Não é possível remover este ingrediente porque tem movimentos de stock.</string>
 </resources>
