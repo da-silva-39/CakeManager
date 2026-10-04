@@ -38,4 +38,10 @@
     <string name="description">Descrição</string>
     <string name="confirm_delete_category">Tem certeza de que deseja eliminar esta categoria?</string>
     <string name="error_category_in_use">Não é possível remover esta categoria porque está associada a produtos.</string>
+    <string name="price">Preço</string>
+    <string name="confirm_delete_product">Tem certeza de que deseja eliminar este produto?</string>
+    <string name="error_invalid_price">Preço inválido.</string>
+    <string name="error_product_in_order">Não é possível remover este produto porque está associado a encomendas.</string>
+    <string name="error_product_in_recipe">Não é possível remover este produto porque está associado a uma receita.</string>
+    <string name="error_select_category">Selecione uma categoria.</string>
 </resources>

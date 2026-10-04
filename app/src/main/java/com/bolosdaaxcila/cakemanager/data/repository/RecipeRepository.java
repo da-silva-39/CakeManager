@@ -46,6 +46,10 @@ public class RecipeRepository extends BaseRepository {
         return recipeDao.search(query);
     }
 
+    public void findByProductId(long productId, Callback<Recipe> callback) {
+        runAsync(() -> recipeDao.findByProductId(productId), callback);
+    }
+
     public void findById(long id, Callback<Recipe> callback) {
         runAsync(() -> recipeDao.findById(id), callback);
     }

@@ -31,6 +31,8 @@
 
         <activity android:name=".ui.categories.CategoryListActivity" android:exported="false" />
         <activity android:name=".ui.categories.CategoryFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.products.ProductListActivity" android:exported="false" />
+        <activity android:name=".ui.products.ProductFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

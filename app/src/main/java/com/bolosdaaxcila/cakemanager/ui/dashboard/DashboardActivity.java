@@ -30,6 +30,9 @@ public class DashboardActivity extends AppCompatActivity {
         Button btnCategories = findViewById(R.id.btnCategories);
         btnCategories.setOnClickListener(v -> startActivity(new Intent(this, com.bolosdaaxcila.cakemanager.ui.categories.CategoryListActivity.class)));
 
+        Button btnProducts = findViewById(R.id.btnProducts);
+        btnProducts.setOnClickListener(v -> startActivity(new Intent(this, com.bolosdaaxcila.cakemanager.ui.products.ProductListActivity.class)));
+
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> {
             session.logout();
