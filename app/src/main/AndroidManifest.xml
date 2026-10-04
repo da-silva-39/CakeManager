@@ -42,6 +42,7 @@
         <activity android:name=".ui.orders.OrderListActivity" android:exported="false" />
         <activity android:name=".ui.orders.OrderFormActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.orders.OrderDetailActivity" android:exported="false" />
+        <activity android:name=".ui.dashboard.ProfileActivity" android:exported="false" />
     </application>
 
 </manifest>

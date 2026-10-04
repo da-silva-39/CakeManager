@@ -80,4 +80,5 @@
     <string name="status">Estado</string>
     <string name="status_updated">Estado atualizado.</string>
     <string name="save_status">Guardar estado</string>
+    <string name="profile">Perfil</string>
 </resources>

@@ -45,6 +45,9 @@ public class DashboardActivity extends AppCompatActivity {
         Button btnOrders = findViewById(R.id.btnOrders);
         btnOrders.setOnClickListener(v -> startActivity(new Intent(this, com.bolosdaaxcila.cakemanager.ui.orders.OrderListActivity.class)));
 
+        Button btnProfile = findViewById(R.id.btnProfile);
+        btnProfile.setOnClickListener(v -> startActivity(new Intent(this, ProfileActivity.class)));
+
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> {
             session.logout();
