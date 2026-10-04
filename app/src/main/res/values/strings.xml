@@ -53,4 +53,11 @@
     <string name="error_invalid_min_quantity">Quantidade mínima inválida.</string>
     <string name="error_ingredient_in_recipe">Não é possível remover este ingrediente porque está associado a uma receita.</string>
     <string name="error_ingredient_has_movements">Não é possível remover este ingrediente porque tem movimentos de stock.</string>
+    <string name="confirm_delete_recipe">Tem certeza de que deseja eliminar esta receita?</string>
+    <string name="error_select_ingredient">Selecione um ingrediente.</string>
+    <string name="error_select_product">Selecione um produto.</string>
+    <string name="error_recipe_needs_ingredients">Adicione pelo menos um ingrediente à receita.</string>
+    <string name="product">Produto</string>
+    <string name="quantity">Quantidade</string>
+    <string name="add_ingredient">Adicionar ingrediente</string>
 </resources>
