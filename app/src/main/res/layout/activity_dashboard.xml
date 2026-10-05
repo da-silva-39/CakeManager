@@ -43,7 +43,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valueProducts" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/pink_primary" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/products" />
                 </LinearLayout>
@@ -56,7 +56,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valueCategories" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/pink_primary" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/categories" />
                 </LinearLayout>
@@ -69,7 +69,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valueIngredients" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/pink_primary" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ingredients" />
                 </LinearLayout>
@@ -82,7 +82,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valueOrders" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/pink_primary" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/orders" />
                 </LinearLayout>
@@ -95,7 +95,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valuePending" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/error" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pending" />
                 </LinearLayout>
@@ -108,7 +108,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valuePreparing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/gold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/preparing" />
                 </LinearLayout>
@@ -121,7 +121,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valueReady" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/success" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ready" />
                 </LinearLayout>
@@ -134,7 +134,7 @@
                 android:layout_columnWeight="1"
                 android:layout_margin="4dp">
 
-                <LinearLayout android:orientation="vertical" android:padding="16dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
                     <TextView android:id="@+id/valueLowStock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textSize="24sp" android:textStyle="bold" android:textColor="@color/error" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/low_stock" />
                 </LinearLayout>
