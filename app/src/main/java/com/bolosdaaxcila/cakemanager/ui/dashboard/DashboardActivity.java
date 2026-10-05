@@ -82,6 +82,10 @@ public class DashboardActivity extends AppCompatActivity {
     private void loadTotals() {
         repository.loadTotals(totals -> {
             if (totals == null) return;
+            if (totals.products == 0 && totals.orders == 0 && totals.ingredients == 0) {
+                repository.seedDemoData(ok -> loadTotals());
+                return;
+            }
             setText(R.id.valueProducts, totals.products);
             setText(R.id.valueCategories, totals.categories);
             setText(R.id.valueIngredients, totals.ingredients);
@@ -116,6 +120,12 @@ public class DashboardActivity extends AppCompatActivity {
         else if (id == R.id.menu_stock) startActivity(new Intent(this, com.bolosdaaxcila.cakemanager.ui.stock.StockActivity.class));
         else if (id == R.id.menu_orders) startActivity(new Intent(this, com.bolosdaaxcila.cakemanager.ui.orders.OrderListActivity.class));
         else if (id == R.id.menu_profile) startActivity(new Intent(this, ProfileActivity.class));
+        else if (id == R.id.menu_seed) {
+            repository.seedDemoData(ok -> {
+                android.widget.Toast.makeText(this, ok != null && ok ? "Dados carregados." : "Erro ao carregar dados.", android.widget.Toast.LENGTH_SHORT).show();
+                loadTotals();
+            });
+        }
         else if (id == R.id.menu_logout) {
             new com.bolosdaaxcila.cakemanager.utils.SessionManager(this).logout();
             startActivity(new Intent(this, LoginActivity.class));
